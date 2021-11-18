@@ -43,6 +43,9 @@
     "cross-env": "^7.0.3",
     "electron": "^16.0.0",
     "electron-is-dev": "^2.0.0",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.2",
+    "tailwindcss": "^2.2.19",
     "wait-on": "^6.0.0"
   },
   "scripts": {
@@ -55,7 +58,9 @@
     "eject": "react-scripts eject",
     "electron:build": "npx electron-forge import",
     "package": "electron-forge package",
-    "make": "electron-forge make -p win32"
+    "make": "electron-forge make -p win32",
+    "tailwind:watch": "npx tailwindcss -i ./src/styles/index.css -o ./src/styles/tailwind.css -w",
+    "tailwind:build": "npx tailwindcss -i ./src/styles/index.css -o ./src/styles/tailwind.css --env production"
   },
   "eslintConfig": {
     "extends": [
