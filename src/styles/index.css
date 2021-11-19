@@ -2,3 +2,13 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import './font.css';
+
+@import './components/select.css';
+@import './components/spinner.css';
+
+#app {
+    min-width: 776px;
+    min-height: 360px;
+    padding: 5px 0px;
+}
