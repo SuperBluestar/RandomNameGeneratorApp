@@ -30372,6 +30372,8 @@ video {
 
 @import './components/select.css';
 
+@import './components/spinner.css';
+
 #app {
   min-width: 776px;
   min-height: 360px;

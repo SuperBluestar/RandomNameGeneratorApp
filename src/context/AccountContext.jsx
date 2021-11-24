@@ -14,15 +14,33 @@ const AccountContextProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
     const [fullname, setFullname] = useState("");
     const [avatar, setAvatar] = useState("");
+    const [accountInfo, setAccountInfo] = useState({
+        avatar: "",
+        fullname: ""
+    });
+
+    const getAccountValue = (name) => {
+        return accountInfo[name];
+    }
+
+    const setAccountValue = (name, value) => {
+        setAccountInfo(oldVal => ({
+            ...oldVal,
+            [name]: value,
+        }))
+    }
 
     const updateData = async () => {
-        setAvatar(faker.image.avatar());
-        setFullname(`${faker.name.firstName()} ${faker.name.lastName}`);
+        setLoading(true);
+        setAccountInfo({
+            avatar: faker.image.avatar(),
+            fullname: `${faker.name.firstName()} ${faker.name.lastName()}`
+        })
+        setLoading(false);
     }
 
     useEffect(async () => {
         let myip = await publicIp.v4();
-        console.log(myip)
         // let { country } = geoIp.lookup(myip);
         // setCountry(country);
         updateData();
@@ -38,7 +56,9 @@ const AccountContextProvider = ({children}) => {
                 setCountry,
                 gender,
                 setGender,
-                updateData
+                updateData,
+                getAccountValue,
+                setAccountValue
             }}
         >
         {children}

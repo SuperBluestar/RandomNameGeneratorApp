@@ -7,7 +7,6 @@ function CountrySelector({
   changeHandler = () => {}
 }) {
   const options = useMemo(() => countryList().getData(), [])
-  console.log(options)
 
   const temp = options.find((ext) => value === "" || ext.value === value);
 
