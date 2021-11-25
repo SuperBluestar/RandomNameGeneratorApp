@@ -65,7 +65,7 @@
   },
   "scripts": {
     "dev": "concurrently -k \"cross-env BROWSER=none yarn startweb\" \"yarn electron\"",
-    "electron": "wait-on tcp:3000 && electron .",
+    "electron": "wait-on tcp:5005 && electron .",
     "start": "electron-forge start",
     "startweb": "react-scripts start",
     "build": "react-scripts build",

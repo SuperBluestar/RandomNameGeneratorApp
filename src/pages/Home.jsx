@@ -35,6 +35,15 @@ const Home = () => {
             </div>
             <div className="h-full ml-3">
                 <h2 className="text-2xl">{getAccountValue("fullname")}</h2>
+                <h2 className="text-xl">{getAccountValue("zipCode")} {getAccountValue("cityName")}</h2>
+                <h2>Email: </h2><h2>{getAccountValue("email")}</h2>
+                <div className="flex flex-between">
+                    <h2>Username: </h2><h2>{getAccountValue("userName")}</h2>
+                    <h2>Password: </h2><h2>{getAccountValue("password")}</h2>
+                </div>
+                <div className="flex flex-between">
+                    <h2>companyName</h2><h2>{getAccountValue("companyName")} | {getAccountValue("companyLocation")}</h2>
+                </div>
             </div></>) }
         </div>
     )

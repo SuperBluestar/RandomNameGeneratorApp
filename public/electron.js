@@ -3,6 +3,8 @@ const path = require('path');
 const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');
 
+require('dotenv').config();
+
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
@@ -17,9 +19,10 @@ function createWindow() {
   // win.loadFile("index.html");
   win.loadURL(
     isDev
-      ? 'http://localhost:3000'
+      ? `http://localhost:${process.env.PORT}`
       : `file://${path.join(__dirname, '../build/index.html')}`
   );
+  console.log(`http://localhost:${process.env.PORT}`)
   // Open the DevTools.
   if (isDev) {
     win.webContents.openDevTools({ mode: 'detach' });

@@ -16,7 +16,14 @@ const AccountContextProvider = ({children}) => {
     const [avatar, setAvatar] = useState("");
     const [accountInfo, setAccountInfo] = useState({
         avatar: "",
-        fullname: ""
+        fullname: "",
+        email: "",
+        userName: "",
+        password: "",
+        zipCode: "",
+        cityName: "",
+        companyName: "",
+        companyLocation: ""
     });
 
     const getAccountValue = (name) => {
@@ -34,7 +41,15 @@ const AccountContextProvider = ({children}) => {
         setLoading(true);
         setAccountInfo({
             avatar: faker.image.avatar(),
-            fullname: `${faker.name.firstName()} ${faker.name.lastName()}`
+            fullname: `${faker.name.firstName()} ${faker.name.lastName()}`,
+            email: `${faker.internet.email()}`,
+            userName: `${faker.internet.userName()}`,
+            password: `${faker.internet.password()}`,
+            zipCode: `${faker.address.zipCode()}`,
+            cityName: `${faker.address.cityName()}`,
+            companyName: `${faker.company.companyName()}`,
+            companySuffix: `${faker.company.companySuffix()}`,
+            companyLocation: `${faker.address.cityName()}`,
         })
         setLoading(false);
     }
